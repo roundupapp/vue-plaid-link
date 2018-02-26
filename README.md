@@ -11,7 +11,7 @@ npm install vue-plaid-link --save
 
 ## Example Usage
 
-```
+```vue
 import PlaidLink from 'vue-plaid-link'
 
 <template>
@@ -45,7 +45,7 @@ export default {
 
 Please refer to the [official Plaid Link docs](https://plaid.com/docs/link/) for descriptions on the various Link options.
 
-```
+```vue
 <plaid-link
     clientName="Your app name"
     env="sandbox"
