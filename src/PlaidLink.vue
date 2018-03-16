@@ -5,11 +5,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import LoadScript from 'vue-plugin-load-script'
-
-Vue.use(LoadScript)
-
 export default {
     name: 'PlaidLink',
     props: {
@@ -36,7 +31,7 @@ export default {
         onEvent: Function
     },
     created () {
-        Vue.loadScript(this.plaidUrl)
+        this.loadScript(this.plaidUrl)
             .then(this.onScriptLoaded)
             .catch(this.onScriptError)
     },
@@ -63,6 +58,26 @@ export default {
             if (window.linkHandler) {
                 window.linkHandler.open(institution)
             }
+        },
+        loadScript (src) {
+            return new Promise(function (resolve, reject) {
+                if (document.querySelector('script[src="' + src + '"]')) {
+                    resolve()
+                    return
+                }
+
+                const el = document.createElement('script')
+
+                el.type = 'text/javascript'
+                el.async = true
+                el.src = src
+
+                el.addEventListener('load', resolve)
+                el.addEventListener('error', reject)
+                el.addEventListener('abort', reject)
+
+                document.head.appendChild(el)
+            })
         }
     }
 }
