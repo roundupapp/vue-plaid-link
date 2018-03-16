@@ -12,8 +12,6 @@ npm install vue-plaid-link --save
 ## Example Usage
 
 ```vue
-import PlaidLink from 'vue-plaid-link'
-
 <template>
     <section>
         <plaid-link
@@ -28,7 +26,7 @@ import PlaidLink from 'vue-plaid-link'
 </template>
 
 <script>
-import PlaidLink from 'PlaidLink'
+import PlaidLink from 'vue-plaid-link'
 
 export default {
     components: { PlaidLink },
