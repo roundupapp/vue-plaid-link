@@ -11,12 +11,13 @@ module.exports = merge(baseWebpackConfig, {
         path: path.resolve(__dirname, "../dist"),
         publicPath: "dist/",
         filename: "[name].js",
-        libraryTarget: "commonjs2"
+        library: "PlaidLink",
+        libraryTarget: "umd"
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: "production"
+            'process.env': {
+                NODE_ENV: '"production"'
             }
         })
     ]

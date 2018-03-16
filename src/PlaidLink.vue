@@ -6,8 +6,12 @@
 
 <script>
 import Vue from 'vue'
+import LoadScript from 'vue-plugin-load-script'
+
+Vue.use(LoadScript)
+
 export default {
-    name: 'plaid-link',
+    name: 'PlaidLink',
     props: {
         plaidUrl: {
             type: String,
