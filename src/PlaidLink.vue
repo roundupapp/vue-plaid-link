@@ -35,6 +35,11 @@ export default {
             .then(this.onScriptLoaded)
             .catch(this.onScriptError)
     },
+    beforeDestroy () {
+        if (window.linkHandler) {
+            window.linkHandler.exit(configurationObject)
+        }
+    },
     methods: {
         onScriptError (error) {
             console.error('There was an issue loading the link-initialize.js script')
