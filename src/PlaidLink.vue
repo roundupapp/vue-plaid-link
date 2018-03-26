@@ -37,7 +37,7 @@ export default {
     },
     beforeDestroy () {
         if (window.linkHandler) {
-            window.linkHandler.exit(configurationObject)
+            window.linkHandler.exit()
         }
     },
     methods: {
