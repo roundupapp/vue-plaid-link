@@ -1,7 +1,11 @@
 <template>
-    <button class="plaid-link-button" @click="handleOnClick">
-        <slot />
-    </button>
+    <div class="plaid-link-wrapper">
+        <slot name="button" v-bind:onClick="handleOnClick">
+            <button class="plaid-link-button" @click="handleOnClick">
+                <slot />
+            </button>
+        </slot>
+    </div>
 </template>
 
 <script>

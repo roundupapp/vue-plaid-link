@@ -39,6 +39,25 @@ export default {
 </script>
 ```
 
+Alternatively if you would like to pass in your own view instead of the default button, utilize the ```button``` slot.
+
+```vue
+<template>
+    <section>
+        <plaid-link
+            env="sandbox"
+            publicKey="{PLAID_PUBLIC_KEY}"
+            clientName="Test App"
+            product="transactions"
+            v-bind="{ onSuccess }">
+            <template slot="button" slot-scope="props">
+                <a @click="props.onClick">Custom Open Element</a>
+            </template>
+        </plaid-link>
+    </section>
+</template>
+```
+
 ## All Props
 
 Please refer to the [official Plaid Link docs](https://plaid.com/docs/link/) for descriptions on the various Link options.
