@@ -1,4 +1,5 @@
 const webpack = require("webpack")
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
     module: {
@@ -26,5 +27,5 @@ module.exports = {
     resolve: {
         extensions: [".webpack.js", ".js", ".vue", ".ts"]
     },
-    plugins: [new webpack.optimize.ModuleConcatenationPlugin()]
+    plugins: [new webpack.optimize.ModuleConcatenationPlugin(), new VueLoaderPlugin()]
 }
