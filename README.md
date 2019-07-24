@@ -68,9 +68,13 @@ Please refer to the [official Plaid Link docs](https://plaid.com/docs/link/) for
     env="sandbox"
     institution={null}
     publicKey={PLAID_PUBLIC_KEY}
-    product={'transactions'}
+    product={['transactions']}
+    language={'en','fr','es'},
+    countryCodes={['US','CA','GB']},
+    isWebView={null},
     token={'public-token-123...'}
     webhook="https://webhooks.test.com"
+    onLoad={this.handleOnLoad}
     onEvent={this.handleOnEvent}
     onExit={this.handleOnExit}
     onLoad={this.handleOnLoad}

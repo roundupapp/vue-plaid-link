@@ -24,12 +24,16 @@ export default {
         selectAccount: Boolean,
         token: String,
         product: {
-            type: String,
-            default: 'transactions'
+            type: [String, Array],
+            default: function () { return ['transactions'] }
         },
+        language: String,
+        countryCodes: Array,
+        isWebView: Boolean,
         clientName: String,
         publicKey: String,
         webhook: String,
+        onLoad: Function,
         onSuccess: Function,
         onExit: Function,
         onEvent: Function
