@@ -92,6 +92,14 @@ export default {
                 document.head.appendChild(el)
             })
         }
+    },
+    watch: {
+        $data: {
+            handler() {
+                this.onScriptLoaded()
+            },
+            deep: true
+        }
     }
 }
 </script>
