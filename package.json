@@ -33,14 +33,14 @@
         "babel-preset-env": "^1.7.0",
         "babel-preset-stage-0": "^6.24.1",
         "css-loader": "^2.1.1",
-        "lodash": ">=4.17.11",
+        "lodash": "^4.17.15",
         "vue": "^2.6.10",
-        "vue-loader": "^15.7.0",
+        "vue-loader": "^15.7.1",
         "vue-plugin-load-script": "^1.2.0",
         "vue-template-compiler": "^2.6.10",
-        "webpack": "^4.33.0",
-        "webpack-cli": "^3.3.2",
-        "webpack-dev-server": "^3.5.1",
-        "webpack-merge": "^4.2.1"
+        "webpack": "^4.39.3",
+        "webpack-cli": "^3.3.7",
+        "webpack-dev-server": "^3.8.0",
+        "webpack-merge": "^4.2.2"
     }
 }
