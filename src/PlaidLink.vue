@@ -94,7 +94,7 @@ export default {
         }
     },
     watch: {
-        $data: {
+        $props: {
             handler() {
                 this.onScriptLoaded()
             },
