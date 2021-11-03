@@ -25,7 +25,7 @@ export default {
     token: String,
     product: {
       type: [String, Array],
-      default: function () {
+      default: function() {
         return ["transactions"];
       },
     },
@@ -67,6 +67,8 @@ export default {
         token: this.token,
         webhook: this.webhook,
       });
+      this.$emit("plaidLoaded");
+      this.onLoad();
     },
     handleOnClick() {
       const institution = this.institution || null;
@@ -75,7 +77,7 @@ export default {
       }
     },
     loadScript(src) {
-      return new Promise(function (resolve, reject) {
+      return new Promise(function(resolve, reject) {
         if (document.querySelector('script[src="' + src + '"]')) {
           resolve();
           return;
@@ -97,8 +99,10 @@ export default {
   },
   watch: {
     $props: {
-      handler() {
-        this.onScriptLoaded();
+      handler(newVal) {
+        if (newVal.token) {
+          this.onScriptLoaded();
+        }
       },
       deep: true,
     },
