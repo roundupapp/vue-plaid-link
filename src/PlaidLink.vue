@@ -25,9 +25,13 @@ export default {
     token: String,
     product: {
       type: [String, Array],
-      default: function() {
+      default: function () {
         return ["transactions"];
       },
+    },
+    receivedRedirectUri: {
+      type: String,
+      default: null,
     },
     language: String,
     countryCodes: Array,
@@ -55,7 +59,7 @@ export default {
       console.error("There was an issue loading the link-initialize.js script");
     },
     onScriptLoaded() {
-      window.linkHandler = window.Plaid.create({
+      let props = {
         clientName: this.clientName,
         env: this.env,
         key: this.publicKey,
@@ -66,7 +70,13 @@ export default {
         selectAccount: this.selectAccount,
         token: this.token,
         webhook: this.webhook,
-      });
+      };
+
+      if (this.receivedRedirectUri) {
+        props.receivedRedirectUri = this.receivedRedirectUri;
+      }
+
+      window.linkHandler = window.Plaid.create(props);
       this.$emit("plaidLoaded");
       this.onLoad();
     },
@@ -77,7 +87,7 @@ export default {
       }
     },
     loadScript(src) {
-      return new Promise(function(resolve, reject) {
+      return new Promise(function (resolve, reject) {
         if (document.querySelector('script[src="' + src + '"]')) {
           resolve();
           return;
