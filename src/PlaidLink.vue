@@ -31,7 +31,7 @@ export default {
     },
     receivedRedirectUri: {
       type: String,
-      default: window.location.href,
+      default: null,
     },
     language: String,
     countryCodes: Array,
