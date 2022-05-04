@@ -25,7 +25,7 @@ export default {
     token: String,
     product: {
       type: [String, Array],
-      default: function () {
+      default: function() {
         return ["transactions"];
       },
     },
@@ -87,7 +87,7 @@ export default {
       }
     },
     loadScript(src) {
-      return new Promise(function (resolve, reject) {
+      return new Promise(function(resolve, reject) {
         if (document.querySelector('script[src="' + src + '"]')) {
           resolve();
           return;
@@ -109,12 +109,18 @@ export default {
   },
   watch: {
     $props: {
-      handler(newVal) {
-        if (newVal.token) {
+      handler(newVal, oldVal) {
+        if (newVal.receivedRedirectUri) {
+          window.linkHandler.exit();
+          window.linkHandler.destroy();
+          this.onScriptLoaded();
+          window.linkHandler.open();
+        } else if (newVal.token) {
           this.onScriptLoaded();
         }
       },
       deep: true,
+      immediate: true,
     },
   },
 };
